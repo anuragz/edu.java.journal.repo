@@ -8,18 +8,19 @@ import org.junit.jupiter.api.Test;
 public class GenericFactoryTest {
 
 	@Test
-	public void genericfactoryGetObject() {
-		GenericFactory<Integer> gFactory = new GenericFactory<Integer>(1);
-		assertTrue(gFactory.getFactoryObject() instanceof Integer);
-		
-		GenericFactory<String> gStrFactory  = new GenericFactory<String>("hello");
-		assertTrue(gStrFactory.getFactoryObject() instanceof String);
-	}
-		
-	@Test
 	public void blenderAppleTest() {
-		Blender<Apple> blender = new Blender<Apple>();
+		Blender<Apple> blender = new Blender<>();
 		assertEquals("Apple Juice", blender.blendIt(new Apple()));
 		assertTrue(blender instanceof Blender);
 	}
+
+	@Test
+	public void genericfactoryGetObject() {
+		GenericFactory<Integer> gFactory = new GenericFactory<>(1);
+		assertTrue(gFactory.getFactoryObject() instanceof Integer);
+
+		GenericFactory<String> gStrFactory = new GenericFactory<>("hello");
+		assertTrue(gStrFactory.getFactoryObject() instanceof String);
+	}
+
 }
